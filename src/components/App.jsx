@@ -1,9 +1,9 @@
 import { Route, Routes } from "react-router-dom";
-import { Home } from "pages/Home";
-import { Movies } from "pages/Movies";
-import { MovieDetails } from "pages/MovieDetails";
-import { Cast } from "pages/Cast";
-import { Reviews } from "pages/Reviews";
+import { Home } from "../pages/Home";
+import { Movies } from "../pages/Movies";
+import { MovieDetails } from "../pages/MovieDetails";
+import { Cast } from "../pages/Cast";
+import { Reviews } from "../pages/Reviews";
 
 import { NotFound } from "pages/NotFound";
 
@@ -11,13 +11,13 @@ import { NotFound } from "pages/NotFound";
 
 export const App = () => {
   return (
-    <Container>
-      <Header>
+    <div>
+      <header>
         <nav>
-          <Link to="/">Home</Link>
-          <Link to="/movies">Movies</Link>
+          <link to="/">Home</link>
+          <link to="/movies">Movies</link>
         </nav>
-      </Header>
+      </header>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/movies" element={<Movies />} />
@@ -26,7 +26,8 @@ export const App = () => {
         <Route path="/movies/:movieId/reviews" element={<Reviews />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
+      </div>
 
-    </Container>
+    
   );
 };
