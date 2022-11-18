@@ -3,7 +3,7 @@ export const Movies = () => {
         <div>
             <form>
                 <input type="text" />
-                <button type="button">Search</button>
+                <button type="button" href="/">Search</button>
             </form>
         </div>
     );
