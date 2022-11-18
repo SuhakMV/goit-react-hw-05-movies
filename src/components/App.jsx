@@ -12,7 +12,7 @@ import { NotFound } from "pages/NotFound";
 export const App = () => {
   return (
     <div>
-      <header>
+      {/* <header>
         <nav>
           <link to="/">Home</link>
           <link to="/movies">Movies</link>
@@ -25,9 +25,7 @@ export const App = () => {
         <Route path="/movies/:movieId/cast" element={<Cast />} />
         <Route path="/movies/:movieId/reviews" element={<Reviews />} />
         <Route path="*" element={<NotFound />} />
-      </Routes>
+      </Routes> */}
       </div>
-
-    
   );
 };
