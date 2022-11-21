@@ -1,9 +1,10 @@
-import { Cast } from 'pages/Cast';
+import { Cast } from 'components/Cast';
 import { Home } from 'pages/Home';
-import MovieDetails from 'pages/MovieDetails';
+import { MovieDetails } from 'pages/MovieDetails';
 import { Movies } from 'pages/Movies';
-import { Reviews } from 'pages/Reviews';
+import { Reviews } from 'components/Reviews';
 import { Route, Routes } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 import { Layout } from './Layout';
 
 export const App = () => {
@@ -20,6 +21,7 @@ export const App = () => {
           </Route>
         </Route>
       </Routes>
+      <ToastContainer autoClose={3000} />
     </>
   );
 };
