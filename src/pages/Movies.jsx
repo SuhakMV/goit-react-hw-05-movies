@@ -3,7 +3,7 @@ import axios from 'axios';
 import { NavLink } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import {fetchMovies} from '../api/api';
+//import {fetchMovies} from '../api/api';
 
 const BASE_URL = 'https://api.themoviedb.org/3/search/movie';
 const API_KEY = '861782ee1fc6aacf939bc06e51306075';

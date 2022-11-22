@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const BASE_URL = 'https://api.themoviedb.org/3/search/movie/';
+const BASE_URL = 'https://api.themoviedb.org/3/movie/';
 const API_KEY = '861782ee1fc6aacf939bc06e51306075';
 
 export const MovieDetails = () => {
