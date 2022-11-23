@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Outlet } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { MovieList } from 'components/MovieList';
 //import {fetchMovies} from '../api/api';
 
 const BASE_URL = 'https://api.themoviedb.org/3/search/movie';
@@ -93,14 +94,8 @@ export const Movies = () => {
           <span>Search</span>
         </button>
       </form>
-
-      <ul>
-        {films.map(film => (
-          <li key={film.id}>
-            <NavLink to={`${film.id}`}>{film.title}</NavLink>
-          </li>
-        ))}
-      </ul>
+      <MovieList movies={films} />
+      <Outlet />
     </div>
   );
 };

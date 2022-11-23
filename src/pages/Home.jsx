@@ -3,6 +3,7 @@ import axios from 'axios';
 import { NavLink, Outlet } from 'react-router-dom';
 import styled from 'styled-components';
 import '../index.css';
+import { MovieList } from 'components/MovieList';
 
 const BASE_URL = 'https://api.themoviedb.org/3/trending/movie/week';
 const API_KEY = '861782ee1fc6aacf939bc06e51306075';
@@ -47,13 +48,7 @@ export const Home = () => {
   return (
     <div>
       <h1>Trending today</h1>
-      <ul>
-        {trending.map(film => (
-          <NavItem key={film.id} to={`${film.id}`}>
-            {film.title}
-          </NavItem>
-        ))}
-      </ul>
+      <MovieList movies={trending}/>
       <Outlet/>
     </div>
   );
