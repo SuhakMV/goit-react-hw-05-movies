@@ -36,7 +36,11 @@ export const MovieList = ({ movies }) => {
   return (
     <Container>
       {movies.map(element => (
-        <ListItem key={element.id} to={`${element.id}`} state={{ from: location }}>
+        <ListItem
+          key={element.id}
+          to={`/movies/${element.id}`}
+          state={{ from: location }}
+        >
           {element.title}
         </ListItem>
       ))}
