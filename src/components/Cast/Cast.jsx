@@ -24,7 +24,7 @@ export const Cast = () => {
   return (
     <ul>
       {cast.map(element => (
-        <li className={css.cast_item} key={element.key}>
+        <li className={css.cast_item} key={element.id}>
           <img src={`https://image.tmdb.org/t/p/w200/${element.profile_path}`} alt="" />
           <div className={css.cast_info}>
             <p className={css.cast_name}>{element.name}</p>
