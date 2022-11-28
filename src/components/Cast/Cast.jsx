@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
-import css from './Cast.module.css'
+import css from './Cast.module.css';
 
 const BASE_URL = 'https://api.themoviedb.org/3/movie/';
 const API_KEY = '861782ee1fc6aacf939bc06e51306075';
 
-export const Cast = () => {
+const Cast = () => {
   const { movieId } = useParams();
   const [cast, setCast] = useState([]);
 
@@ -23,17 +23,28 @@ export const Cast = () => {
 
   return (
     <ul>
-      {cast.map(element => (
-        <li className={css.cast_item} key={element.id}>
-          <img src={`https://image.tmdb.org/t/p/w200/${element.profile_path}`} alt="" />
-          <div className={css.cast_info}>
-            <p className={css.cast_name}>{element.name}</p>
-            <p className={css.text}>
-              Character: <span>{element.character}</span>
-            </p>
-          </div>
-        </li>
-      ))}
+      {cast.map(({ id, profile_path, name, character }) => {
+        return (
+          <li className={css.cast_item} key={id}>
+            <img
+              src={
+                profile_path
+                  ? `https://image.tmdb.org/t/p/w200/${profile_path}`
+                  : `https://upload.wikimedia.org/wikipedia/commons/6/6c/No_image_3x4.svg`
+              }
+              alt=""
+            />
+            <div className={css.cast_info}>
+              <p className={css.cast_name}>{name}</p>
+              <p className={css.text}>
+                Character: <span>{character}</span>
+              </p>
+            </div>
+          </li>
+        );
+      })}
     </ul>
   );
 };
+
+export default Cast;

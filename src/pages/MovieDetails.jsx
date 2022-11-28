@@ -7,7 +7,7 @@ import { Aditchional } from 'components/Aditchional/Aditchional';
 const BASE_URL = 'https://api.themoviedb.org/3/movie/';
 const API_KEY = '861782ee1fc6aacf939bc06e51306075';
 
-export const MovieDetails = () => {
+const MovieDetails = () => {
   const { movieId } = useParams();
   const [movie, setMovie] = useState({});
   const [genres, setGenres] = useState('');
@@ -51,3 +51,5 @@ export const MovieDetails = () => {
     </>
   );
 };
+
+export default MovieDetails;

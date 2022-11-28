@@ -1,13 +1,6 @@
 import { lazy } from 'react';
-//import { Cast } from './Cast/Cast';
-//import { Reviews } from './Reviews/Reviews';
-//import { Home } from 'pages/Home';
-//import { MovieDetails } from 'pages/MovieDetails';
-//import { Movies } from 'pages/Movies';
-
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
-//import { Layout } from './Layout/Layout';
 
 const Layout = lazy(() => import('components/Layout/Layout'));
 const Home = lazy(() => import('pages/Home'));

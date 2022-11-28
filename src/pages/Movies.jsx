@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useSearchParams } from 'react-router-dom';
-import { toast } from 'react-toastify';
+//import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { MovieList } from 'components/MovieList';
 import SearchForm from 'components/SearchForm/SearchForm';
@@ -10,7 +10,7 @@ import SearchForm from 'components/SearchForm/SearchForm';
 const BASE_URL = 'https://api.themoviedb.org/3/search/movie';
 const API_KEY = '861782ee1fc6aacf939bc06e51306075';
 
-export const Movies = () => {
+const Movies = () => {
   const [films, setFilms] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
   //const [inputText, setInputText] = useState('');
@@ -27,7 +27,7 @@ export const Movies = () => {
       .then(response => {
         setFilms(response.data.results);
       });
-  }, [searchParams]);
+  }, [filmQuery]);
 
   const handleSubmit =  query => {
     const nextParams = query !== '' ? { query } : {};
@@ -41,3 +41,5 @@ export const Movies = () => {
     </div>
   );
 };
+
+export default Movies;

@@ -6,7 +6,7 @@ import css from './Reviews.module.css'
 const BASE_URL = 'https://api.themoviedb.org/3/movie/';
 const API_KEY = '861782ee1fc6aacf939bc06e51306075';
 
-export const Reviews = () => {
+const Reviews = () => {
   const { movieId } = useParams();
   const [reviews, setReviews] = useState([]);
 
@@ -40,3 +40,5 @@ export const Reviews = () => {
     </div>
   );
 };
+
+export default Reviews;
