@@ -23,7 +23,7 @@ const Cast = () => {
 
   return (
     <ul>
-      {cast.map(({ id, profile_path, name, character }) => {
+      {cast.map(({ id, profile_path, name, character, original_title }) => {
         return (
           <li className={css.cast_item} key={id}>
             <img
@@ -32,7 +32,7 @@ const Cast = () => {
                   ? `https://image.tmdb.org/t/p/w200/${profile_path}`
                   : `https://upload.wikimedia.org/wikipedia/commons/6/6c/No_image_3x4.svg`
               }
-              alt=""
+              alt={original_title}
             />
             <div className={css.cast_info}>
               <p className={css.cast_name}>{name}</p>

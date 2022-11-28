@@ -12,9 +12,12 @@ const MovieDetails = () => {
   const [movie, setMovie] = useState({});
   const [genres, setGenres] = useState('');
   const [date, setDate] = useState('')
+  const [poster, setPoster] = useState('');
   const location = useLocation();
   const backLinkHref = location.state?.from ?? '/';
   //const from = location.state?.from ?? '/';
+  //console.log(movie.poster_path);
+  const posterURL = 'https://image.tmdb.org/t/p/w500';
   
 
   useEffect(() => {
@@ -26,7 +29,8 @@ const MovieDetails = () => {
       .then(response => {
         setMovie(response.data);
         setGenres(response.data.genres.map(genre => genre.name).join(', '));
-        setDate(new Date(`${response.data.release_date}`).getFullYear())
+        setDate(new Date(`${response.data.release_date}`).getFullYear());
+        setPoster(response.data.poster_path);
       });
   }, [movieId]);
 
@@ -35,7 +39,7 @@ const MovieDetails = () => {
       <div>
         <div>
           <BackLink to={backLinkHref}>Go back</BackLink>
-          <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt="" />
+          <img src={`${posterURL}${poster}`} alt="" />
         </div>
         <div>
           <h2>{movie.original_title} ({date})</h2>
