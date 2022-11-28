@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import '../index.css';
-import { MovieList } from 'components/MovieList';
+import MovieList from 'components/MovieList';
+//import { MovieList } from 'components/MovieList';
 
 const BASE_URL = 'https://api.themoviedb.org/3/trending/movie/week';
 const API_KEY = '861782ee1fc6aacf939bc06e51306075';

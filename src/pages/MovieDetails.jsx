@@ -13,7 +13,7 @@ const MovieDetails = () => {
   const [genres, setGenres] = useState('');
   const [date, setDate] = useState('')
   const location = useLocation();
-  const backLinkHref = location.state?.from ?? '/movies';
+  const backLinkHref = location.state?.from ?? '/';
   //const from = location.state?.from ?? '/';
   
 

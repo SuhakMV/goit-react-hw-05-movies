@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Link, useLocation } from 'react-router-dom';
 
-export const MovieList = ({ movies }) => {
+const MovieList = ({ movies }) => {
   const location = useLocation();
 
   const Container = styled.div`
@@ -47,3 +47,5 @@ export const MovieList = ({ movies }) => {
     </Container>
   );
 };
+
+export default MovieList;

@@ -3,7 +3,8 @@ import axios from 'axios';
 import { useSearchParams } from 'react-router-dom';
 //import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { MovieList } from 'components/MovieList';
+//import { MovieList } from 'components/MovieList';
+import MovieList from 'components/MovieList';
 import SearchForm from 'components/SearchForm/SearchForm';
 //import {fetchMovies} from '../api/api';
 
@@ -27,7 +28,7 @@ const Movies = () => {
       .then(response => {
         setFilms(response.data.results);
       });
-  }, [filmQuery]);
+  }, [searchParams]);
 
   const handleSubmit =  query => {
     const nextParams = query !== '' ? { query } : {};
