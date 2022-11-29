@@ -1,11 +1,10 @@
 import { useState, useEffect } from 'react';
-import MovieList from 'components/MovieList/MovieList';
 import { fetchTrending } from 'api/api';
+import MovieList from 'components/MovieList/MovieList';
 import '../index.css';
 
 const Home = () => {
   const [trending, setTrending] = useState([]);
-  //const [status, setStatus] = useState('idle');
 
   useEffect(() => {
     async function getTrending() {

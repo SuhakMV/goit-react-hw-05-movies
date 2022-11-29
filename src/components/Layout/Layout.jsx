@@ -2,7 +2,7 @@ import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 import { Container, Header, Link } from '../App.styled';
 
-const Layout = () => {
+export const Layout = () => {
   return (
     <Container>
       <Header>
@@ -17,5 +17,3 @@ const Layout = () => {
     </Container>
   );
 };
-
-export default Layout;

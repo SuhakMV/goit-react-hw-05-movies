@@ -1,9 +1,8 @@
-import { lazy, Suspense } from 'react';
+import { lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
-import Layout from './Layout/Layout';
+import { Layout } from './Layout/Layout';
 
-//const Layout = lazy(() => import('components/Layout/Layout'));
 const Home = lazy(() => import('pages/Home'));
 const Movies = lazy(() => import('pages/Movies'));
 const MovieDetails = lazy(() => import('pages/MovieDetails'));

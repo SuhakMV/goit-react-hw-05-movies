@@ -1,36 +1,35 @@
 import { useState, useEffect } from 'react';
-import axios from 'axios';
 import { useSearchParams } from 'react-router-dom';
-import 'react-toastify/dist/ReactToastify.css';
 import MovieList from 'components/MovieList/MovieList';
 import SearchForm from 'components/SearchForm/SearchForm';
-
-
-const BASE_URL = 'https://api.themoviedb.org/3/search/movie';
-const API_KEY = '861782ee1fc6aacf939bc06e51306075';
+import { fetchMovies } from 'api/api';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Movies = () => {
   const [films, setFilms] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
+  console.log(films.length);
   //const [inputText, setInputText] = useState('');
-  const filmQuery = searchParams.get('query') ?? '';
 
   useEffect(() => {
-    if (filmQuery === '') {
+    const query = searchParams.get('query') ?? '';
+    if (query === '') {
       return;
     }
-    axios
-      .get(
-        `${BASE_URL}?api_key=${API_KEY}&language=en-US&query=${filmQuery}&page=1&include_adult=false`
-      )
-      .then(response => {
-        setFilms(response.data.results);
-      });
+    async function getMovies() {
+      try {
+        const { data } = await fetchMovies(query);
+        setFilms(data.results);
+      } catch (error) {
+        toast.error('Nothing found!');
+      }
+    }
+    getMovies();
   }, [searchParams]);
 
-  const handleSubmit =  query => {
-    const nextParams = query !== '' ? { query } : {};
-    setSearchParams(nextParams);
+  const handleSubmit = query => {
+    setSearchParams(query !== '' ? { query } : {});
   };
 
   return (
