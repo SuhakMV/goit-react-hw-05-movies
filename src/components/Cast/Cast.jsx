@@ -1,10 +1,7 @@
 import { useState, useEffect } from 'react';
-import axios from 'axios';
 import { useParams } from 'react-router-dom';
-import css from './Cast.module.css';
-
-const BASE_URL = 'https://api.themoviedb.org/3/movie/';
-const API_KEY = '861782ee1fc6aacf939bc06e51306075';
+import { fetchCast } from 'api/api';
+import { BoxText, List, ListItem } from './Cast.styled';
 
 const Cast = () => {
   const { movieId } = useParams();
@@ -14,36 +11,40 @@ const Cast = () => {
     if (movieId === '') {
       return;
     }
-    axios
-      .get(`${BASE_URL}${movieId}/credits?api_key=${API_KEY}`)
-      .then(response => {
-        setCast(response.data.cast);
-      });
+    async function getCast() {
+      try {
+        const { data } = await fetchCast(movieId);
+        setCast(data.cast);
+      } catch (error) {
+        error('error');
+      }
+    }
+    getCast();
   }, [movieId]);
 
   return (
-    <ul>
+    <List>
       {cast.map(({ id, profile_path, name, character, original_title }) => {
         return (
-          <li className={css.cast_item} key={id}>
+          <ListItem key={id}>
             <img
               src={
                 profile_path
                   ? `https://image.tmdb.org/t/p/w200/${profile_path}`
-                  : `https://upload.wikimedia.org/wikipedia/commons/6/6c/No_image_3x4.svg`
+                  : `https://thesource.sa.ua.edu/wp-content/uploads/sites/57/2019/08/no-person-200x300.png`
               }
               alt={original_title}
             />
-            <div className={css.cast_info}>
-              <p className={css.cast_name}>{name}</p>
-              <p className={css.text}>
+            <div>
+              <BoxText>{name}</BoxText>
+              <BoxText>
                 Character: <span>{character}</span>
-              </p>
+              </BoxText>
             </div>
-          </li>
+          </ListItem>
         );
       })}
-    </ul>
+    </List>
   );
 };
 

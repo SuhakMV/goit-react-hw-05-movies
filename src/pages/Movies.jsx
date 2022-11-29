@@ -9,8 +9,6 @@ import 'react-toastify/dist/ReactToastify.css';
 const Movies = () => {
   const [films, setFilms] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
-  console.log(films.length);
-  //const [inputText, setInputText] = useState('');
 
   useEffect(() => {
     const query = searchParams.get('query') ?? '';
@@ -20,9 +18,13 @@ const Movies = () => {
     async function getMovies() {
       try {
         const { data } = await fetchMovies(query);
+        if(!data.total_results) {
+          toast.error('Nothing found!');
+        }
         setFilms(data.results);
+        console.log(data.total_results);
       } catch (error) {
-        toast.error('Nothing found!');
+        error('error');
       }
     }
     getMovies();

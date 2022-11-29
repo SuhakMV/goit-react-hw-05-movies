@@ -1,10 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import axios from 'axios';
-import css from './Reviews.module.css'
-
-const BASE_URL = 'https://api.themoviedb.org/3/movie/';
-const API_KEY = '861782ee1fc6aacf939bc06e51306075';
+import { fetchReviews } from 'api/api';
+import { List, ListItem, Text } from './Reviews.styled';
 
 const Reviews = () => {
   const { movieId } = useParams();
@@ -14,30 +11,30 @@ const Reviews = () => {
     if (movieId === '') {
       return;
     }
-    axios
-      .get(
-        `${BASE_URL}${movieId}/reviews?api_key=${API_KEY}&language=en-US&page=1`
-      )
-      .then(response => {
-        setReviews(response.data.results);
-      });
+    async function getReviews() {
+      try {
+        const { data } = await fetchReviews(movieId);
+        setReviews(data.results);
+      } catch (error) {
+        error('error');
+      }
+    }
+    getReviews();
   }, [movieId]);
 
-  if (reviews.length === 0) {
-    return "We don't have any reviews for this movie.";
-  }
-
   return (
-    <div className={css.container}>
-      <ul>
-        {reviews.map(({ id, author, content }) => (
-          <li className={css.item} key={id}>
-            <h3 className={css.title}>Author: {author}</h3>
-            <p className={css.text}>{content}</p>
-          </li>
-        ))}
-      </ul>
-    </div>
+    <List>
+      {reviews.length === 0 ? (
+        <Text>We don't have any reviews for this movie.</Text>
+      ) : (
+        reviews.map(({ id, author, content }) => (
+          <ListItem key={id}>
+            <Text>Author: {author}</Text>
+            <Text>{content}</Text>
+          </ListItem>
+        ))
+      )}
+    </List>
   );
 };
 

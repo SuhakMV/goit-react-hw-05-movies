@@ -1,22 +1,24 @@
-//import styled from 'styled-components';
-import { useLocation } from 'react-router-dom';
-import { Container, ListItem } from 'components/MovieList/MovieList.module';
+import { Box } from 'components/App.styled';
+import { NavLink, useLocation } from 'react-router-dom';
+import { List, ListItem } from './MovieList.styled';
 
 const MovieList = ({ movies }) => {
   const location = useLocation();
 
   return (
-    <Container>
-      {movies.map(element => (
-        <ListItem
-          key={element.id}
-          to={`/movies/${element.id}`}
-          state={{ from: location }}
-        >
-          {element.title}
-        </ListItem>
-      ))}
-    </Container>
+    <Box>
+      <List>
+        {movies.map(({ id, title }) => {
+          return (
+            <ListItem key={id}>
+              <NavLink to={`/movies/${id}`} state={{ from: location }}>
+                {title}
+              </NavLink>
+            </ListItem>
+          );
+        })}
+      </List>
+    </Box>
   );
 };
 

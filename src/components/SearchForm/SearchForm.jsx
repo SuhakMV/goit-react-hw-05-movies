@@ -3,6 +3,8 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import PropTypes from 'prop-types';
+import { Button, Input } from './SearchForm.styled';
+import { Box } from 'components/App.styled';
 
 const SearchForm = props => {
   const [query, setQuery] = useState('');
@@ -23,8 +25,9 @@ const SearchForm = props => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-        <input
+    <Box>
+      <form onSubmit={handleSubmit}>
+        <Input
           type="text"
           autoComplete="off"
           autoFocus
@@ -32,10 +35,11 @@ const SearchForm = props => {
           value={query}
           onChange={handleInputChange}
         />
-        <button type="submit">
+        <Button type="submit">
           <span>Search</span>
-        </button>
+        </Button>
       </form>
+    </Box>
   );
 };
 

@@ -1,23 +1,24 @@
-import { Link, useLocation } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
+import { Box, List, ListItem } from './Aditchional.styled';
 
 export const Aditchional = () => {
   const location = useLocation();
   const from = location.state?.from ?? '/';
   return (
-    <div>
+    <Box>
       <h2>Aditchional information</h2>
-      <ul>
-        <li>
-          <Link to="cast" state={{ from }}>
+      <List>
+        <ListItem>
+          <NavLink to="cast" state={{ from }}>
             Cast
-          </Link>
-        </li>
-        <li>
-          <Link to="reviews" state={{ from }}>
+          </NavLink>
+        </ListItem>
+        <ListItem>
+          <NavLink to="reviews" state={{ from }}>
             Reviews
-          </Link>
-        </li>
-      </ul>
-    </div>
+          </NavLink>
+        </ListItem>
+      </List>
+    </Box>
   );
 };
