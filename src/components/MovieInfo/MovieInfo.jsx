@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { BoxInfo, TextBox, Title, Text } from './MovieInfo.styled';
 
 export const MovieInfo = ({ movie }) => {
@@ -30,4 +31,17 @@ export const MovieInfo = ({ movie }) => {
       </BoxInfo>
     </>
   );
+};
+
+MovieInfo.propTypes = {
+  original_title: PropTypes.string,
+  genres: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string,
+    })
+  ),
+  overview: PropTypes.string,
+  release_date: PropTypes.string,
+  poster_path: PropTypes.string,
+  vote_average: PropTypes.number,
 };

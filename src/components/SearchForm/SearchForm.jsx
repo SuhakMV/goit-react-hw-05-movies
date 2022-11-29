@@ -1,8 +1,8 @@
+import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-import PropTypes from 'prop-types';
 import { Button, Input } from './SearchForm.styled';
 import { Box } from 'components/App.styled';
 

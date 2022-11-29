@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchReviews } from 'api/api';
@@ -39,3 +40,13 @@ const Reviews = () => {
 };
 
 export default Reviews;
+
+Reviews.propTypes = {
+  getReviews: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      author: PropTypes.string.isRequired,
+      content: PropTypes.string.isRequired,
+    })
+  ),
+};

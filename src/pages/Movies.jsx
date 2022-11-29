@@ -22,7 +22,6 @@ const Movies = () => {
           toast.error('Nothing found!');
         }
         setFilms(data.results);
-        console.log(data.total_results);
       } catch (error) {
         error('error');
       }

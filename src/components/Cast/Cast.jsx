@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchCast } from 'api/api';
@@ -49,3 +50,14 @@ const Cast = () => {
 };
 
 export default Cast;
+
+Cast.propTypes = {
+  getCast: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      character: PropTypes.string.isRequired,
+      profile_path: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+    })
+  ),
+};
