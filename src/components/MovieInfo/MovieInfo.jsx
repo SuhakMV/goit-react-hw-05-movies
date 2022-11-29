@@ -17,7 +17,7 @@ export const MovieInfo = ({ movie }) => {
   return (
     <>
       <BoxInfo>
-        <img src={posterURL} alt={original_title} width="300" />
+        <img src={poster_path && posterURL} alt={original_title} width="300" />
         <TextBox>
           <Title>
             {original_title} ({date()})
