@@ -1,12 +1,12 @@
 import { NavLink, useLocation } from 'react-router-dom';
-import { Box, List, ListItem } from './Aditchional.styled';
+import { Box, List, ListItem, Title } from './Aditchional.styled';
 
 export const Aditchional = () => {
   const location = useLocation();
   const from = location.state?.from ?? '/';
   return (
     <Box>
-      <h2>Aditchional information</h2>
+      <Title>Aditchional information</Title>
       <List>
         <ListItem>
           <NavLink to="cast" state={{ from }}>

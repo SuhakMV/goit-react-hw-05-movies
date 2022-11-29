@@ -7,13 +7,13 @@ padding: 10px 0;
 `;
 
 export const TextBox = styled.div`
-  padding: 20px;
-  font-size: 20px;
+  padding: 15px;
+  font-size: 15px;
   margin: 0;
 `;
 
 export const Title = styled.h2`
-  font-size: 28px;
+  font-size: 25px;
   font-weight: 700;
   margin 0;
   margin-bottom: 10px;
@@ -23,11 +23,11 @@ export const Text = styled.p`
   padding 0;
   margin 0;
   :nth-child(even) {
-    margin-bottom: 30px;
+    margin-bottom: 20px;
   }
   :nth-child(odd) {
-    font-size: 22px;
+    font-size: 20px;
     font-weight: 700;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
   }
 `;

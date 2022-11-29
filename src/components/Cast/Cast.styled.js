@@ -21,7 +21,7 @@ export const ListItem = styled.li`
 
 export const BoxText = styled.p`
   padding: 10px;
-  font-size: 20px;
+  font-size: 15px;
   margin: 0;
   :first-child {
     font-weight: 700;

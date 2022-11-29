@@ -20,7 +20,7 @@ export const Header = styled.header`
 `;
 
 export const Link = styled(NavLink)`
-  font-size: 28px;
+  font-size: 25px;
   padding: 8px 20px;
   text-decoration: none;
   color: black;

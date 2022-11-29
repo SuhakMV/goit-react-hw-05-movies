@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const List = styled.ul`
   padding: 0 0 0 50px;
   list-style-type: disc;
-  font-size: 20px;
+  font-size: 15px;
   font-weight: 600;
 `;
 
