@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-import { Button, Input } from './SearchForm.styled';
+import { Button, Form, Input } from './SearchForm.styled';
 import { Box } from 'components/App.styled';
 
 const SearchForm = props => {
@@ -26,7 +26,7 @@ const SearchForm = props => {
 
   return (
     <Box>
-      <form onSubmit={handleSubmit}>
+      <Form onSubmit={handleSubmit}>
         <Input
           type="text"
           autoComplete="off"
@@ -38,7 +38,7 @@ const SearchForm = props => {
         <Button type="submit">
           <span>Search</span>
         </Button>
-      </form>
+      </Form>
     </Box>
   );
 };
