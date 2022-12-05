@@ -12,14 +12,10 @@ body {
 .ul {
   list-style: none;
   padding: 0;
-
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
   content: '&#62';
-  text-transform: uppercase;  
 }
-
-

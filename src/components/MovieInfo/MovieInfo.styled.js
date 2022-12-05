@@ -2,12 +2,14 @@ import styled from 'styled-components';
 
 export const BoxInfo = styled.div`
 display: flex;
+flex-wrap: wrap;
 padding: 10px 0;
 }
 `;
 
 export const TextBox = styled.div`
-  padding: 15px;
+  max-width: calc(1200px - 340px);
+  padding: 10px;
   font-size: 15px;
   margin: 0;
 `;

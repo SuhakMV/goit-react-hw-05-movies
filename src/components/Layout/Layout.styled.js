@@ -30,11 +30,9 @@ export const Link = styled(NavLink)`
 
   :first-child {
     padding-left: 82px;
-}
+  }
 
   &.active {
     color: hotpink;
   }
-
- 
 `;
