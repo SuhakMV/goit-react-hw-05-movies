@@ -15,5 +15,6 @@ export const Button = styled.button`
 
 export const Form = styled.form`
   display: flex;
-  width: 500px;
+  width: 100%;
+  max-width: 500px;
 `;
