@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchCast } from 'api/api';
-import { BoxText, List, ListItem } from './Cast.styled';
+import { BoxText, List, ListItem, Text } from './Cast.styled';
 import { Box } from 'components/App.styled';
 
 const Cast = () => {
@@ -27,26 +27,30 @@ const Cast = () => {
   return (
     <Box>
       <List>
-        {cast.map(({ id, profile_path, name, character, original_title }) => {
-          return (
-            <ListItem key={id}>
-              <img
-                src={
-                  profile_path
-                    ? `https://image.tmdb.org/t/p/w200/${profile_path}`
-                    : `https://thesource.sa.ua.edu/wp-content/uploads/sites/57/2019/08/no-person-200x300.png`
-                }
-                alt={original_title}
-              />
-              <div>
-                <BoxText>{name}</BoxText>
-                <BoxText>
-                  Character: <span>{character}</span>
-                </BoxText>
-              </div>
-            </ListItem>
-          );
-        })}
+        {cast.length === 0 ? (
+          <Text>We don't have any Cast for this movie.</Text>
+        ) : (
+          cast.map(({ id, profile_path, name, character, original_title }) => {
+            return (
+              <ListItem key={id}>
+                <img
+                  src={
+                    profile_path
+                      ? `https://image.tmdb.org/t/p/w200/${profile_path}`
+                      : `https://thesource.sa.ua.edu/wp-content/uploads/sites/57/2019/08/no-person-200x300.png`
+                  }
+                  alt={original_title}
+                />
+                <div>
+                  <BoxText>{name}</BoxText>
+                  <BoxText>
+                    Character: <span>{character}</span>
+                  </BoxText>
+                </div>
+              </ListItem>
+            );
+          })
+        )}
       </List>
     </Box>
   );

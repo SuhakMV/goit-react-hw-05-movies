@@ -30,3 +30,15 @@ export const BoxText = styled.p`
     padding-bottom: 0;
   }
 `;
+
+export const Text = styled.p`
+  margin: 0;
+  overflow-wrap: break-word;
+  line-height: 1.4;
+  
+  :first-child {
+    font-size: 20px;
+    font-weight: 700;
+    padding-bottom: 5px;
+}
+`;

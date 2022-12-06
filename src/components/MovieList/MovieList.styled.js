@@ -12,6 +12,8 @@ export const List = styled.ul`
 `;
 
 export const ListItem = styled.li`
+  position: relative;
+  padding-bottom: 57px;
   width: 300px;
   height: auto;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -21,8 +23,9 @@ export const ListItem = styled.li`
 `;
 
 export const BoxText = styled.div`
-  align-items: center;
-`
+  position: absolute;
+  bottom: 0;
+`;
 
 export const Text = styled.p`
   padding: 20px 15px;

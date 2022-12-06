@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import { BoxInfo, TextBox, Title, Text } from './MovieInfo.styled';
+import image from '../../img/index-main.jpg'
 
 export const MovieInfo = ({ movie }) => {
   const {
@@ -11,13 +12,13 @@ export const MovieInfo = ({ movie }) => {
     genres,
   } = movie;
 
-  const posterURL = `https://image.tmdb.org/t/p/w500${poster_path}`;
+  const posterURL = poster_path ? `https://image.tmdb.org/t/p/w500${poster_path}` : image;
   const date = () => new Date(`${release_date}`).getFullYear();
 
   return (
     <>
       <BoxInfo>
-        <img src={poster_path && posterURL} alt={original_title} width="300" />
+        <img src={posterURL} alt={original_title} width="300" />
         <TextBox>
           <Title>
             {original_title} ({date()})
