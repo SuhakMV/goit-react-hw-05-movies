@@ -8,6 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const Movies = () => {
   const [films, setFilms] = useState([]);
+  const [page, setPage] = useState(1);
   const [searchParams, setSearchParams] = useSearchParams();
 
   useEffect(() => {
@@ -17,26 +18,34 @@ const Movies = () => {
     }
     async function getMovies() {
       try {
-        const { data } = await fetchMovies(query);
-        if(!data.total_results) {
+        const { data } = await fetchMovies(query, page);
+        if (!data.total_results) {
           toast.error('Nothing found!');
         }
-        setFilms(data.results);
+        page === 1
+          ? setFilms(data.results)
+          : setFilms(prevFilms => [...prevFilms, ...data.results]);
       } catch (error) {
         error('error');
       }
     }
     getMovies();
-  }, [searchParams]);
+  }, [searchParams, page]);
 
   const handleSubmit = query => {
     setSearchParams(query !== '' ? { query } : {});
   };
 
+  const handleOnLoadMore = () => {
+    setPage(prevPage => prevPage + 1);
+  };
+
   return (
     <div>
       <SearchForm onSubmit={handleSubmit} />
-      {films.length > 0 && <MovieList movies={films} />}
+      {films.length > 0 && (
+        <MovieList movies={films} onLoadMore={handleOnLoadMore} />
+      )}
     </div>
   );
 };

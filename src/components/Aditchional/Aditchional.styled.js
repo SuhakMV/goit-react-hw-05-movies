@@ -5,7 +5,7 @@ export const Box = styled.div`
   border-bottom: 1px solid;
 `;
 export const List = styled.ul`
-  padding: 0 0 0 50px;
+  padding: 0 0 0 20px;
   list-style-type: disc;
   font-size: 15px;
   font-weight: 600;

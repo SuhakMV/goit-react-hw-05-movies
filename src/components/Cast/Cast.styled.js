@@ -2,11 +2,12 @@ import styled from 'styled-components';
 
 export const List = styled.ul`
   list-style: none;
+  text-align: center;
   display: grid;
-  max-width: calc(100vw - 48px);
+  max-width: calc(100vw - 20px);
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   grid-gap: 20px;
-  padding: 30px 25px;
+  padding: 30px 20px;
   margin: 0 auto;
 `;
 
@@ -17,6 +18,7 @@ export const ListItem = styled.li`
   display: flex;
   flex-direction: column;
   border-radius: 5px;
+  display: inline-block;
 `;
 
 export const BoxText = styled.p`
@@ -26,5 +28,5 @@ export const BoxText = styled.p`
   :first-child {
     font-weight: 700;
     padding-bottom: 0;
-}
+  }
 `;

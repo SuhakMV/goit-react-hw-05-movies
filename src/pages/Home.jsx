@@ -5,24 +5,31 @@ import { Title } from 'components/App.styled';
 
 const Home = () => {
   const [trending, setTrending] = useState([]);
+  const [page, setPage] = useState(1);
 
   useEffect(() => {
     async function getTrending() {
       try {
-        const { data } = await fetchTrending();
-        setTrending(data.results);
+        const { data } = await fetchTrending(page);
+        page === 1
+          ? setTrending(data.results)
+          : setTrending(prevTrending => [...prevTrending, ...data.results]);
       } catch (error) {
         error('error');
       }
     }
     getTrending();
-  }, []);
+  }, [page]);
+
+  const handleOnLoadMore = () => {
+    setPage(prevPage => prevPage + 1);
+  };
 
   return (
     <main>
       <div>
         <Title>Trending today</Title>
-        <MovieList movies={trending} />
+        <MovieList movies={trending} onLoadMore={handleOnLoadMore} />
       </div>
     </main>
   );

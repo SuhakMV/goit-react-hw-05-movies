@@ -18,4 +18,6 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
   content: '&#62';
+  align-items: center;
+  justify-content: center;
 }

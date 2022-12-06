@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const List = styled.ul`
-  padding: 0 0 0 50px;
+  padding: 0 0 0 20px;
   list-style-type: disc;
   font-size: 15px;
 `;
@@ -12,6 +12,7 @@ export const ListItem = styled.li`
 
 export const Text = styled.p`
   margin: 0;
+  overflow-wrap: break-word;
   line-height: 1.4;
   
   :first-child {
